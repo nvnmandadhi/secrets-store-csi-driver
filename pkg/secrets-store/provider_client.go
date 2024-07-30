@@ -106,6 +106,7 @@ func NewPluginClientBuilder(paths []string, opts ...grpc.DialOption) *PluginClie
 				return (&net.Dialer{}).DialContext(ctx, "unix", target)
 			}),
 			grpc.WithDefaultServiceConfig(ServiceConfig),
+			grpc.WithAuthority("localhost"),
 		}...,
 		),
 	}
